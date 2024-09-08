@@ -142,7 +142,7 @@ function shareResume(data: ResumeData) {
     `;
 
     //  URL 
-    const customURL = 'https://hackatone-milestone1.vercel.app/';
+    const customURL = 'https://hackhathone-milestone5-areeba15.vercel.app/';
 
     if (navigator.share) {
         navigator.share({
