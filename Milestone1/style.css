@@ -1,106 +1,76 @@
 body {
-    font-family:  sans-serif;
-    max-width: 800px;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f4f1;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f0f2f5;
-    color: #333;
-}
-.img{
-   height:200px;
-   border-radius: 50%;
-   margin-left: 36%;
-   width: 200px;
-   
-}
-#milestone1{
-    text-decoration: underline;
-    margin-bottom: 5%;
-    color: skyblue;
-    text-transform: capitalize;
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-}
-#milestone1:hover{
-    transform: scale(1.1);
-}
-h1, p {
-    text-align: center;
-    margin: 0;
+    background-color: white;
 }
 
-h1 {
-    font-size: 32px;
-    color: #222;
-}
-
-header {
-    text-align: left;
-    padding-bottom: 20px;
-    border-bottom: 2px solid #ccc;
-    margin-bottom: 20px;
-}
-
-.subheading {
-    font-size: 18px;
-    color: #555;
-    margin-top: 5px;
-}
-
-section {
-    margin-top: 40px;
+/* sidebar */
+.sidebar{
+    background-color:#7f9d8a;
+    color: white;
+    width: 50%;
     padding: 20px;
-    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left:3%;
+    margin-top: 0;
 }
 
-section:hover {
-    transform: scale(1.1);}
+img{
+    display: block;
+    width: 70%;
+    margin: auto;
+    margin-top: 20%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+}
+
 h2 {
-    font-size: 24px;
-    color: #444;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    background-color: #f9f9f9;
-    padding: 15px;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    transition: background-color 0.3s ease;
-}
-
-li:hover {
-    background-color: #f1f1f1;
-}
-
-a {
-    text-decoration: none;
-    color: #0066cc;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-footer {
-    margin-top: 40px;
     text-align: center;
+    font-size: 24px;
+    margin: 20px 0;
+    text-decoration: 5px #7f9d8a underline;
 }
+
+h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffddb3;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+
+.profile-info, .contact-info, .social-info {
+    margin-top: 20%;
+}
+
+.contact-info p, .social-info p {
+    color: #f8f8f8;
+}
+
+.contact-info i {
+    padding: 3%;
+}
+
 
 button {
-    background-color: #0066cc;
-    color: white;
+    background-color: rgb(245, 212, 218);
+    color: #d19144;
     border: none;
     padding: 12px 24px;
     border-radius: 5px;
@@ -110,6 +80,86 @@ button {
 }
 
 button:hover {
-    background-color: #005bb5;
+    background-color:rgb(245, 212, 218);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* main section */
+
+.main{
+    width: 100%;
+}
+
+.name{
+    padding: 10%;
+    margin-top: 10%;
+    background-color: rgb(245, 212, 218);
+    width: 85%;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+.name p{
+    margin-left: 0;
+}
+
+.main h2 {
+    font-size: 22px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+.main p, .main ul {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+    margin-left: 5%;
+}
+
+.main ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.main ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Responsive Design */
+
+/* Small screens (below 768px) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+    }
+
+    .sidebar {
+        width: 40%;
+        margin-left: 0;
+    }
+
+    .main {
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    img {
+        width: 60%;
+        margin-top: 10%;
+    }
+
+    .name {
+        width: 100%;
+        padding: 8%;
+        font-size: 70%;
+    }
+    button{
+        padding: 8px 15px;
+    }
+    .contact-info p{
+        overflow-wrap: break-word;
+    }
 }

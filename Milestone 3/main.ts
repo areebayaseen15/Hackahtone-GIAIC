@@ -39,16 +39,63 @@ function generateResume(event: Event) {
     // Create HTML structure for the resume
     resumeDiv.innerHTML = `
         <h2>${userDetails.name}</h2>
-        <p><strong>Phone:</strong> ${userDetails.phone}</p>
-        <p><strong>WhatsApp:</strong> ${userDetails.whatsapp}</p>
-        <p><strong>Email:</strong> ${userDetails.email}</p>
-        <p><strong>LinkedIn:</strong> <a href="${userDetails.linkdin}" target="_blank">${userDetails.linkdin}</a></p>
-        <p><strong>Qualification:</strong> ${userDetails.qualifications}</p>
-        <p><strong>Courses:</strong> ${userDetails.courses}</p>
-        <p><strong>Skills:</strong> ${userDetails.skills}</p>
-        <p><strong>Profession:</strong> ${userDetails.profession}</p>
-        <p><strong>Experience:</strong> ${userDetails.experience}</p>
-        <p><strong>Summary:</strong> ${userDetails.summary}</p>
+        
+        
+          <section id="personal details">
+       <h2>Personal Details:</h2>
+        <ul>
+        <li><strong>Phone:</strong> <br>${userDetails.phone}  </li>
+        <li><strong>WhatsApp:</strong><br> ${userDetails.whatsapp}</li>
+        <li><strong>Email:</strong><br> ${userDetails.email}</li>
+ <li><strong>LinkedIn:</strong> <br><a href="${userDetails.linkdin}" target="_blank">${userDetails.linkdin}</a></li>
+
+        </ul>
+         
+        </section>
+      <section id="education">
+        <h2>Education:</h2>
+       <ul>
+        <li><strong>Qualification:</strong> <br>${userDetails.qualifications}</li>
+        <li><strong>Courses:</strong> <br> ${userDetails.courses}</li>
+       </ul>
+
+       </section>
+        <section id="education">
+        <h2>Technical Qualification:</h2>
+         <ul>
+        <li><strong>Courses:</strong> <br> ${userDetails.courses}</li>
+       </ul>
+
+       </section>
+
+       <section id="work-experience">
+        <h2>Work Experience:</h2>
+           ${userDetails.experience}
+       </Section>
+         <section id="skills">
+        <h2>Technical Skills:</h2>
+        <ul>
+        <li>
+ ${userDetails.skills}
+        </li>
+    </ul>
+    </section>
+    <button id="skills-section">Toggle Skills Section</button>
+
+      
+         <Section>
+      <h2>Profession:</h2>
+      <ul><li> ${userDetails.profession} </li></ul>
+       </Section>
+       
+       
+       
+        <Section>
+      <h2>Summary:</h2>
+      <ul><li>${userDetails.summary}</li></ul>
+       </Section>
+          </div>
+</div>
     `;
 }
 

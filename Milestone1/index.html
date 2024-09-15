@@ -3,73 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume</title>
+    <title>Static Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    <h1 id="milestone1" >Static Resume Builder</h1>
+    <div class="container">
+        <!-- sidebar -->
+        <div class="sidebar">
+            <div class="profile-image">
+                <img src="areeba-removebg-preview.png" alt="areeba">
+            </div>
+            <div class="profile-info">
+                <h3>Profile</h3>
+                <ul>
+                    <li>Information technology student.</li>
+                    <li>I consider myself a responsible and orderly person</li>
+                    <li>I am looking forward to my first work experience.</li>
+                </ul>
+              
+            </div>
+            <button id="skills-section">Toggle my skills</button>
 
-    <img src="areeba-removebg-preview.png" alt="profile pic" class="img">
-
-    <div class="fields">
-    <h1>Areeba Yaseen</h1>
-    <p>Certified Cloud Native for AI | Web Developer</p>
-</div>
-    <section id="personal details">
-       <h2>Personal Details:</h2>
-       <ul>
-        <li><strong>Email:</strong><a href="mailto: name@email.com">areebayaseen15@gmail.com</a></li>
-        <li><strong>Phone:</strong><a href="tel:+923181062438">03181062438</a></li>
-        <li><strong>WhatsUp:</strong><a href="whatsapp:contact=03181062438@s.whatsapp.com">03181062438</a></li>
-        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn Profile</a></li>
-    </ul>
-    </section>
-
-
-    <section id="education">
-        <h2>Education:</h2>
-        <ul>
-            <li>Matriculation with 1st division.</li>
-            <li>Intermediate from The Grace Intermediate Collage, with 1st division.</li>
-            <li>B.COM (2022-prsent).</li>
-        </ul>
-    </section>
-    <section id="education">
-        <h2>Technical Qualification:</h2>
-        <ul>
-             <li>Web development Course , Bano Qabil</li>
-            <li>Applied Cloud Native AI, GIAIC </li>
-        </ul>
-    </section>
-    <section id="work-experience">
-        <h2>Work Experience:</h2>
-        <div class="work-item">
-            <h3>As a teacher</h3>
-            <ul>
-                <li>The Graceful Grammar Higher Secondary School: 2 months Experienced as a pre-primary teacher  ( 2019)
-                </li>
-                <li>The Lyceum Cambridge System: 4 years experienced as primary and Secondary teacher  (2019 - 2022)
-                </li>
-                <li>The Eagle House Academy: 2 Years experienced  ( 2022 -present)</li>
-            </ul>
-            <h3>As a developer</h3>
-            <ul>
-                <li>Learning and getting experiece , completing projects </li>
-            </ul>
+            <div class="contact-info">
+                <h3>Contact Me</h3>
+                
+                <p><i class="fa fa-phone"></i>03181062438</p>
+                <p><i class="fa fa-envelope"></i>areebayaseen15@gmail.com</p>
+                <p><i class="fa fa-map-marker"></i>5G Saeedabad Baldia Town Karachi</p>
+                
+            </div>
+            <div class="social-info">
+                <h3>Professional Accounts</h3>
+                <p><strong>Github Account:</strong><br><a href="">areebayaseen15</a> </p>
+                <p><strong>LinkedIn Profile:</strong><br><a href="">Areeba Yaseen</a> </p>
+            </div>
         </div>
-    </section>
+        <!-- Main section -->
+            <div class="main">
+                <div class="name">
+            <h1>Areeba Yaseen</h1>
+            <p>Applied Certified Cloud Native for AI <br> Web Developer</p>
 
-    <section id="skills">
-        <h2>Technical Skills:</h2>
-        <ul>
-        <li>HTML</li>
-      <li>CSS</li>
-      <li>TypeScript</li>
-      <li>JavaScript</li>
-    </ul>
-    </section>
-    <button id="skills-section">Toggle Skills Section</button>
+                </div>
+                <div class="education">
+                <h2>Education</h2>
+                    <ul>
+                <li>Matriculation (Science) Karachi</li>
+                <li>Intermediate (Pre-Medical) from Karachi Board</li>
+                <li>B.Com (Continue) from AIOU</li>
+            </ul>
+                </div>
 
-    <script src="./main.js"></script>
+                <div class="Technical-courses">
+                    <h2>Technical Courses</h2>
+                    <ul>
+                        <li>3 months "Web Development Course" from Bano Qabil (Continue)</li>
+                <li>1 year "Artificial Intelligence Course" from GIAIC (Continue)</li>
+                    </ul>
+                
+                </div>
+
+                <div class="skills" id="skills">
+                    <h2>Technical Skills</h2>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>TypeScript</li>
+                    </ul>
+                </div>
+
+                <div class="experiece">
+                    <h2>Work Experience</h2>
+                    <p><strong>Project-Based Experience:</strong></p>
+                    <ul>
+                        <li>Bano Qabil website clone (HTML, CSS)</li>
+                        <li>Netflix clone (HTML, CSS)</li>
+                        <li>Calculator (JavaScript)</li>
+                        <li>CLI based Projects (TypeScript)</li>
+                        <li>Portfolio (Next.js)</li>
+                    </ul>
+                </div>
+
+                <div class="Reference">
+                    <h2>Reference</h2>
+                    <p>Will be furnished upon request.</p>
+                </div>
+            </div>
+        
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
