@@ -4,7 +4,7 @@
 interface UserDetails {
     name: string;
     phone: string;
-    whatsapp: string;
+    address: string;
     email: string;
     linkdin: string;
     qualifications: string;
@@ -12,7 +12,9 @@ interface UserDetails {
     skills: string;
     profession: string;
     experience: string;
-    summary: string;
+    profile: string;
+    github:string;
+    profileImage: string;
 }
 
 // Function to handle form submission and generate resume
@@ -23,79 +25,99 @@ function generateResume(event: Event) {
     const userDetails: UserDetails = {
         name: (document.getElementById("name") as HTMLInputElement).value,
         phone: (document.getElementById("phone") as HTMLInputElement).value,
-        whatsapp: (document.getElementById("whatsapp") as HTMLInputElement).value,
+        address: (document.getElementById("address") as HTMLInputElement).value,
         email: (document.getElementById("email") as HTMLInputElement).value,
         linkdin: (document.getElementById("linkdin") as HTMLInputElement).value,
+        github: (document.getElementById("github") as HTMLInputElement).value,
         qualifications: (document.getElementById("qualifications") as HTMLSelectElement).value,
         courses: (document.getElementById("courses") as HTMLInputElement).value,
         skills: (document.getElementById("skills") as HTMLInputElement).value,
         profession: (document.getElementById("profession") as HTMLInputElement).value,
         experience: (document.getElementById("experience") as HTMLTextAreaElement).value,
-        summary: (document.getElementById("summary") as HTMLTextAreaElement).value,
+        profile: (document.getElementById("profile") as HTMLTextAreaElement).value,
+        profileImage: (document.getElementById("profile-image") as HTMLTextAreaElement).value,
     };
 
     const resumeDiv = document.getElementById("resume") as HTMLElement;
 
     // Create HTML structure for the resume
     resumeDiv.innerHTML = `
-        <h2>${userDetails.name}</h2>
+        <div class="container">
+        <!-- sidebar -->
+        <div class="sidebar">
+            <div class="profile-image">
+         <img src="${userDetails.profileImage }" alt="${userDetails.name}">
+                </div>
+            
+            <div class="profile-info">
+                <h3>Profile</h3>
+                <ul>
+                    <p>${userDetails.profile}</p>
+                   
+                </ul>
+              
+            </div>
+
+            <div class="contact-info">
+                <h3>Contact Me</h3>
+                
+                <p><i class="fa fa-phone"></i>${userDetails.phone}</p>
+                <p><i class="fa fa-envelope"></i>${userDetails.email}</p>
+                <p><i class="fa fa-map-marker"></i>${userDetails.linkdin}</p>
+                
+            </div>
+            <div class="social-info">
+                <h3>Professional Accounts</h3>
+                <p><strong>Github Account:</strong><br><a href="">${userDetails.github}</a> </p>
+                <p><strong>LinkedIn Profile:</strong><br><a href="">${userDetails.linkdin}</a> </p>
+            </div>
+        </div>
+        <!-- Main section -->
+            <div class="main">
+                <div class="name">
+            <h1>${userDetails.name}</h1>
+            <p>${userDetails.profession}</p>
+
+                </div>
+                <div class="education">
+                <h2>Education</h2>
+                    <ul>
+                <li>${userDetails.qualifications}</li>
+              
+            </ul>
+                </div>
+
+                <div class="Technical-courses">
+                    <h2>Technical Courses</h2>
+                    <ul>
+                        <li>${userDetails.courses}</li>
+                    </ul>
+                
+                </div>
+
+                <div class="skills" id="skills">
+                    <h2>Technical Skills</h2>
+                    <ul>
+                        <li> ${userDetails.skills}</li>
+                       
+                    </ul>
+                </div>
+
+                <div class="experiece">
+                    <h2>Work Experience</h2>
+                    <ul>
+                     <li> ${userDetails.experience}</li></ul>
+                   
+                    
+                </div>
+
+                <div class="Reference">
+                    <h2>Reference</h2>
+                    <p>Will be furnished upon request.</p>
+                </div>
+            </div>
         
-        
-          <section id="personal details">
-       <h2>Personal Details:</h2>
-        <ul>
-        <li><strong>Phone:</strong> <br>${userDetails.phone}  </li>
-        <li><strong>WhatsApp:</strong><br> ${userDetails.whatsapp}</li>
-        <li><strong>Email:</strong><br> ${userDetails.email}</li>
- <li><strong>LinkedIn:</strong> <br><a href="${userDetails.linkdin}" target="_blank">${userDetails.linkdin}</a></li>
-
-        </ul>
-         
-        </section>
-      <section id="education">
-        <h2>Education:</h2>
-       <ul>
-        <li><strong>Qualification:</strong> <br>${userDetails.qualifications}</li>
-        <li><strong>Courses:</strong> <br> ${userDetails.courses}</li>
-       </ul>
-
-       </section>
-        <section id="education">
-        <h2>Technical Qualification:</h2>
-         <ul>
-        <li><strong>Courses:</strong> <br> ${userDetails.courses}</li>
-       </ul>
-
-       </section>
-
-       <section id="work-experience">
-        <h2>Work Experience:</h2>
-           ${userDetails.experience}
-       </Section>
-         <section id="skills">
-        <h2>Technical Skills:</h2>
-        <ul>
-        <li>
- ${userDetails.skills}
-        </li>
-    </ul>
-    </section>
-    <button id="skills-section">Toggle Skills Section</button>
-
-      
-         <Section>
-      <h2>Profession:</h2>
-      <ul><li> ${userDetails.profession} </li></ul>
-       </Section>
-       
-       
-       
-        <Section>
-      <h2>Summary:</h2>
-      <ul><li>${userDetails.summary}</li></ul>
-       </Section>
-          </div>
-</div>
+    </div>
     `;
 }
 
@@ -105,3 +127,13 @@ const form = document.getElementById("resumeForm") as HTMLFormElement;
 form.addEventListener("submit", generateResume);
 
 
+//Toggle Effect
+const skillsSection  = document.getElementById('skills') as HTMLElement 
+const toggleButton = document.getElementById("skills-section")as HTMLButtonElement 
+toggleButton.addEventListener("click" , ()=>{
+ if(skillsSection.style.display === "none"){
+    skillsSection.style.display = "block";
+ }else{
+    skillsSection.style.display = "none";
+ }
+})
