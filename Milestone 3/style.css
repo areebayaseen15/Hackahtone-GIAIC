@@ -279,3 +279,75 @@ button:hover {
     }
 }
 
+
+
+/* Generated resume */
+#resume {
+    margin: 40px auto;
+    max-width: 900px;
+    padding: 20px;
+    overflow: hidden;
+    background-color: rgb(209, 233, 243);
+}
+
+#resume h2 {
+    font-size: 2.8rem;
+    color: #2b2b2b; 
+    margin-bottom: 35px;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+#resume section {
+    margin-bottom: 30px;
+    padding: 25px;
+    background-color: #bfa5c4; 
+    border-left: 6px solid #6688bd; 
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07); 
+}
+
+#resume p {
+    font-size: 1.3rem;
+    color: #444; 
+    margin-bottom: 12px;
+    line-height: 1.85;
+}
+
+#resume p strong {
+    font-weight: 700;
+    color: #819dbb; }
+
+#resume a {
+    color: #5b59cc;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#resume a:hover {
+    text-decoration: underline;
+}
+
+#resume h3 {
+    font-size: 1.9rem;
+    margin-bottom: 12px;
+    color: #617f81; 
+    border-bottom: 3px solid rgb(114, 149, 163); 
+    padding-bottom: 8px;
+    text-transform: uppercase; 
+}
+
+@media (max-width: 768px) {
+    #resume {
+        padding: 25px;
+    }
+
+    #resume h2 {
+        font-size: 2.3rem;
+    }
+
+    #resume p {
+        font-size: 1.1rem;
+    }
+}}

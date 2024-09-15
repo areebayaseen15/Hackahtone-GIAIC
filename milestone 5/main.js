@@ -60,8 +60,13 @@ editButton.addEventListener('click', function () {
 });
 function shareResume(data) {
     var resumeText = "\n        Personal Details\n        Name: ".concat(data.name, "\n        Contact Number: ").concat(data.phone, "\n        WhatsApp: ").concat(data.whatsapp, "\n        Email: ").concat(data.email, "\n        LinkedIn: ").concat(data.linkdin, "\n\n        Education\n        Qualification: ").concat(data.qualifications, "\n        Courses: ").concat(data.courses, "\n\n        Skills\n        Your Skills: ").concat(data.skills, "\n\n        Profession\n        Profession: ").concat(data.profession, "\n\n        Work Experience\n        Experience: ").concat(data.experience, "\n\n        Summary\n        Summary: ").concat(data.summary, "\n    ");
+<<<<<<< HEAD
     //  URL 
     var customURL = 'https://hackhathone-milestone5-areeba15.vercel.app/';
+=======
+    // Replace this URL with your own
+    var customURL = https://hackhathone-milestone5-areeba15.vercel.app/';
+>>>>>>> db4fa257f63269d33b9e45be222648968f1bd536
     if (navigator.share) {
         navigator.share({
             title: 'My Resume',
@@ -81,7 +86,11 @@ function downloadResume(data) {
     var url = URL.createObjectURL(blob);
     var link = document.createElement('a');
     link.href = url;
+<<<<<<< HEAD
     link.download = 'resume.txt';
+=======
+    link.download = 'resume.txt'; 
+>>>>>>> db4fa257f63269d33b9e45be222648968f1bd536
     link.click();
     URL.revokeObjectURL(url);
 }
