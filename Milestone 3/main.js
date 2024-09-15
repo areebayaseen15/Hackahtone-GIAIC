@@ -4,20 +4,33 @@ function generateResume(event) {
     var userDetails = {
         name: document.getElementById("name").value,
         phone: document.getElementById("phone").value,
-        whatsapp: document.getElementById("whatsapp").value,
+        address: document.getElementById("address").value,
         email: document.getElementById("email").value,
         linkdin: document.getElementById("linkdin").value,
+        github: document.getElementById("github").value,
         qualifications: document.getElementById("qualifications").value,
         courses: document.getElementById("courses").value,
         skills: document.getElementById("skills").value,
         profession: document.getElementById("profession").value,
         experience: document.getElementById("experience").value,
-        summary: document.getElementById("summary").value,
+        profile: document.getElementById("profile").value,
+        profileImage: document.getElementById("profile-image").value,
     };
     var resumeDiv = document.getElementById("resume");
     // Create HTML structure for the resume
-    resumeDiv.innerHTML = "\n        <h2>".concat(userDetails.name, "</h2>\n        \n        \n          <section id=\"personal details\">\n       <h2>Personal Details:</h2>\n        <ul>\n        <li><strong>Phone:</strong> <br>").concat(userDetails.phone, "  </li>\n        <li><strong>WhatsApp:</strong><br> ").concat(userDetails.whatsapp, "</li>\n        <li><strong>Email:</strong><br> ").concat(userDetails.email, "</li>\n <li><strong>LinkedIn:</strong> <br><a href=\"").concat(userDetails.linkdin, "\" target=\"_blank\">").concat(userDetails.linkdin, "</a></li>\n\n        </ul>\n         \n        </section>\n      <section id=\"education\">\n        <h2>Education:</h2>\n       <ul>\n        <li><strong>Qualification:</strong> <br>").concat(userDetails.qualifications, "</li>\n        <li><strong>Courses:</strong> <br> ").concat(userDetails.courses, "</li>\n       </ul>\n\n       </section>\n        <section id=\"education\">\n        <h2>Technical Qualification:</h2>\n         <ul>\n        <li><strong>Courses:</strong> <br> ").concat(userDetails.courses, "</li>\n       </ul>\n\n       </section>\n\n       <section id=\"work-experience\">\n        <h2>Work Experience:</h2>\n           ").concat(userDetails.experience, "\n       </Section>\n         <section id=\"skills\">\n        <h2>Technical Skills:</h2>\n        <ul>\n        <li>\n ").concat(userDetails.skills, "\n        </li>\n    </ul>\n    </section>\n    <button id=\"skills-section\">Toggle Skills Section</button>\n\n      \n         <Section>\n      <h1>Profession:</h1>\n      <ul><li> ").concat(userDetails.profession, " </li></ul>\n       </Section>\n       \n       \n       \n        <Section>\n      <h1>Summary:</h1>\n      <ul><li>").concat(userDetails.summary, "</li></ul>\n       </Section>\n          </div>\n</div>\n    ");
+    resumeDiv.innerHTML = "\n        <div class=\"container\">\n        <!-- sidebar -->\n        <div class=\"sidebar\">\n            <div class=\"profile-image\">\n         <img src=\"".concat(userDetails.profileImage, "\" alt=\"").concat(userDetails.name, "\">\n                </div>\n            \n            <div class=\"profile-info\">\n                <h3>Profile</h3>\n                <ul>\n                    <p>").concat(userDetails.profile, "</p>\n                   \n                </ul>\n              \n            </div>\n\n            <div class=\"contact-info\">\n                <h3>Contact Me</h3>\n                \n                <p><i class=\"fa fa-phone\"></i>").concat(userDetails.phone, "</p>\n                <p><i class=\"fa fa-envelope\"></i>").concat(userDetails.email, "</p>\n                <p><i class=\"fa fa-map-marker\"></i>").concat(userDetails.linkdin, "</p>\n                \n            </div>\n            <div class=\"social-info\">\n                <h3>Professional Accounts</h3>\n                <p><strong>Github Account:</strong><br><a href=\"\">").concat(userDetails.github, "</a> </p>\n                <p><strong>LinkedIn Profile:</strong><br><a href=\"\">").concat(userDetails.linkdin, "</a> </p>\n            </div>\n        </div>\n        <!-- Main section -->\n            <div class=\"main\">\n                <div class=\"name\">\n            <h1>").concat(userDetails.name, "</h1>\n            <p>").concat(userDetails.profession, "</p>\n\n                </div>\n                <div class=\"education\">\n                <h2>Education</h2>\n                    <ul>\n                <li>").concat(userDetails.qualifications, "</li>\n              \n            </ul>\n                </div>\n\n                <div class=\"Technical-courses\">\n                    <h2>Technical Courses</h2>\n                    <ul>\n                        <li>").concat(userDetails.courses, "</li>\n                    </ul>\n                \n                </div>\n\n                <div class=\"skills\" id=\"skills\">\n                    <h2>Technical Skills</h2>\n                    <ul>\n                        <li> ").concat(userDetails.skills, "</li>\n                       \n                    </ul>\n                </div>\n\n                <div class=\"experiece\">\n                    <h2>Work Experience</h2>\n                    <ul>\n                     <li> ").concat(userDetails.experience, "</li></ul>\n                   \n                    \n                </div>\n\n                <div class=\"Reference\">\n                    <h2>Reference</h2>\n                    <p>Will be furnished upon request.</p>\n                </div>\n            </div>\n        \n    </div>\n    ");
 }
 // Event listener for form submission
 var form = document.getElementById("resumeForm");
 form.addEventListener("submit", generateResume);
+//Toggle Effect
+var skillsSection = document.getElementById('skills');
+var toggleButton = document.getElementById("skills-section");
+toggleButton.addEventListener("click", function () {
+    if (skillsSection.style.display === "none") {
+        skillsSection.style.display = "block";
+    }
+    else {
+        skillsSection.style.display = "none";
+    }
+});
