@@ -153,8 +153,8 @@ button:hover {
     }
 
     .name {
-        width: 50%;
-        font-size: 30%;
+        width: 100%;
+        font-size: 50%;
     }
     button{
         padding: 8px 15px;
