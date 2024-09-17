@@ -19,6 +19,18 @@ interface UserDetails {
   const editButton = document.getElementById('editButton') as HTMLButtonElement;
   
   let isEditing = false;
+  let imageUrl: string | null;
+
+document.getElementById('profile-image')?.addEventListener('change', function (event) {
+  const file = (event.target as HTMLInputElement).files?.[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      imageUrl = e.target?.result as string; 
+    };
+    reader.readAsDataURL(file);
+  }
+});
   
   resumeForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -38,7 +50,7 @@ interface UserDetails {
         profession: (document.getElementById("profession") as HTMLInputElement).value,
         experience: (document.getElementById("experience") as HTMLTextAreaElement).value,
         profile: (document.getElementById("profile") as HTMLTextAreaElement).value,
-        profileImage: (document.getElementById("profile-image") as HTMLTextAreaElement).value,
+          profileImage: imageUrl || ""
       };
   
       displayResume(resumeData);
