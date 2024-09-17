@@ -16,7 +16,18 @@ interface UserDetails {
     github:string;
     profileImage: string;
 }
+let imageUrl: string | null;
 
+document.getElementById('profile-image')?.addEventListener('change', function (event) {
+  const file = (event.target as HTMLInputElement).files?.[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      imageUrl = e.target?.result as string; 
+    };
+    reader.readAsDataURL(file);
+  }
+});
 // Function to handle form submission and generate resume
 function generateResume(event: Event) {
     event.preventDefault();
@@ -35,12 +46,12 @@ function generateResume(event: Event) {
         profession: (document.getElementById("profession") as HTMLInputElement).value,
         experience: (document.getElementById("experience") as HTMLTextAreaElement).value,
         profile: (document.getElementById("profile") as HTMLTextAreaElement).value,
-        profileImage: (document.getElementById("profile-image") as HTMLTextAreaElement).value,
+        profileImage: imageUrl || "",
     };
 
     const resumeDiv = document.getElementById("resume") as HTMLElement;
 
-    // Create HTML structure for the resume
+    // Generated resume
     resumeDiv.innerHTML = `
         <div class="container">
         <!-- sidebar -->
