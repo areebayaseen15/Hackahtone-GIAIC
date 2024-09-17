@@ -7,25 +7,27 @@ resumeForm.addEventListener('submit', function (e) {
     if (!isEditing) {
         // Generate resume
         var resumeData = {
-            name: document.getElementById('name').value,
-            phone: document.getElementById('phone').value,
-            whatsapp: document.getElementById('whatsapp').value,
-            email: document.getElementById('email').value,
-            linkdin: document.getElementById('linkdin').value,
-            qualifications: document.getElementById('qualifications').value,
-            courses: document.getElementById('courses').value,
-            skills: document.getElementById('skills').value,
-            profession: document.getElementById('profession').value,
-            experience: document.getElementById('experience').value,
-            summary: document.getElementById('summary').value,
+            name: document.getElementById("name").value,
+            phone: document.getElementById("phone").value,
+            address: document.getElementById("address").value,
+            email: document.getElementById("email").value,
+            linkdin: document.getElementById("linkdin").value,
+            github: document.getElementById("github").value,
+            qualifications: document.getElementById("qualifications").value,
+            courses: document.getElementById("courses").value,
+            skills: document.getElementById("skills").value,
+            profession: document.getElementById("profession").value,
+            experience: document.getElementById("experience").value,
+            profile: document.getElementById("profile").value,
+            profileImage: document.getElementById("profile-image").value,
         };
         displayResume(resumeData);
     }
 });
 function displayResume(data) {
-    var resumeHTML = "\n      <div class=\"maindetails\">\n        <h2>Personal Details</h2>\n        <p><strong>Name:</strong> <span>".concat(data.name, "</span></p>\n        <p><strong>Contact Number:</strong> <span>").concat(data.phone, "</span></p>\n        <p><strong>WhatsApp:</strong> <span>").concat(data.whatsapp, "</span></p>\n        <p><strong>Email:</strong> <span>").concat(data.email, "</span></p>\n        <p><strong>LinkedIn:</strong> <span>").concat(data.linkdin, "</span></p>\n      </div>\n  \n      <div class=\"other-details\">\n        <h2>Education</h2>\n        <p><strong>Qualification:</strong> <span>").concat(data.qualifications, "</span></p>\n        <p><strong>Courses:</strong> <span>").concat(data.courses, "</span></p>\n  \n        <h2>Skills</h2>\n        <p><strong>Your Skills:</strong> <span>").concat(data.skills, "</span></p>\n  \n        <h2>Profession</h2>\n        <p><strong>Profession:</strong> <span>").concat(data.profession, "</span></p>\n  \n        <h2>Work Experience</h2>\n        <p><strong>Experience:</strong> <span>").concat(data.experience, "</span></p>\n  \n        <h2>Summary</h2>\n        <p><strong>Summary:</strong> <span>").concat(data.summary, "</span></p>\n      </div>\n    ");
+    var resumeHTML = "\n        <div class=\"container\">\n        <!-- sidebar -->\n        <div class=\"sidebar\">\n            <div class=\"profile-image\">\n         <img src=\"".concat(data.profileImage, "\" alt=\"").concat(data.name, "\">\n                </div>\n            \n            <div class=\"profile-info\">\n                <h3>Profile</h3>\n                <ul>\n                    <p>").concat(data.profile, "</p>\n                   \n                </ul>\n              \n            </div>\n\n            <div class=\"contact-info\">\n                <h3>Contact Me</h3>\n                \n                <p><i class=\"fa fa-phone\"></i>").concat(data.phone, "</p>\n                <p><i class=\"fa fa-envelope\"></i>").concat(data.email, "</p>\n                <p><i class=\"fa fa-map-marker\"></i>").concat(data.linkdin, "</p>\n                \n            </div>\n            <div class=\"social-info\">\n                <h3>Professional Accounts</h3>\n                <p><strong>Github Account:</strong><br><a href=\"\">").concat(data.github, "</a> </p>\n                <p><strong>LinkedIn Profile:</strong><br><a href=\"\">").concat(data.linkdin, "</a> </p>\n            </div>\n        </div>\n        <!-- Main section -->\n            <div class=\"main\">\n                <div class=\"name\">\n            <h1>").concat(data.name, "</h1>\n            <p>").concat(data.profession, "</p>\n\n                </div>\n                <div class=\"education\">\n                <h2>Education</h2>\n                    <ul>\n                <li>").concat(data.qualifications, "</li>\n              \n            </ul>\n                </div>\n\n                <div class=\"Technical-courses\">\n                    <h2>Technical Courses</h2>\n                    <ul>\n                        <li>").concat(data.courses, "</li>\n                    </ul>\n                \n                </div>\n\n                <div class=\"skills\" id=\"skills\">\n                    <h2>Technical Skills</h2>\n                    <ul>\n                        <li> ").concat(data.skills, "</li>\n                       \n                    </ul>\n                </div>\n\n                <div class=\"experiece\">\n                    <h2>Work Experience</h2>\n                    <ul>\n                     <li> ").concat(data.experience, "</li></ul>\n                   \n                    \n                </div>\n\n                <div class=\"Reference\">\n                    <h2>Reference</h2>\n                    <p>Will be furnished upon request.</p>\n                </div>\n            </div>\n        \n    </div>\n      \n    ");
     resumeSection.innerHTML = resumeHTML;
-    toggleFormElements(true); // Disable form elements when the resume is displayed
+    toggleFormElements(true);
 }
 function toggleFormElements(disable) {
     var inputs = resumeForm.querySelectorAll('input, select, textarea');
@@ -34,26 +36,18 @@ function toggleFormElements(disable) {
     });
 }
 function saveChanges() {
-    toggleFormElements(true); // Disable form elements after saving
+    toggleFormElements(true);
     editButton.textContent = 'Edit';
     isEditing = false;
 }
 editButton.addEventListener('click', function () {
     isEditing = !isEditing;
     if (isEditing) {
-        // Enable editing mode
         toggleFormElements(false);
         editButton.textContent = 'Save';
     }
     else {
-        // Save the changes
         resumeForm.dispatchEvent(new Event('submit'));
         saveChanges();
     }
 });
-function displayResume(data) {
-    var resumeHTML = "\n      <div class=\"maindetails\">\n        <h2>Personal Details</h2>\n        <p><strong>Name:</strong> <span>".concat(data.name, "</span></p>\n        <p><strong>Contact Number:</strong> <span>").concat(data.phone, "</span></p>\n        <p><strong>WhatsApp:</strong> <span>").concat(data.whatsapp, "</span></p>\n        <p><strong>Email:</strong> <span>").concat(data.email, "</span></p>\n        <p><strong>LinkedIn:</strong> <span>").concat(data.linkdin, "</span></p>\n      </div>\n  \n      <div class=\"other-details\">\n        <h2>Education</h2>\n        <p><strong>Qualification:</strong> <span>").concat(data.qualifications, "</span></p>\n        <p><strong>Courses:</strong> <span>").concat(data.courses, "</span></p>\n  \n        <h2>Skills</h2>\n        <p><strong>Your Skills:</strong> <span>").concat(data.skills, "</span></p>\n  \n        <h2>Profession</h2>\n        <p><strong>Profession:</strong> <span>").concat(data.profession, "</span></p>\n  \n        <h2>Work Experience</h2>\n        <p><strong>Experience:</strong> <span>").concat(data.experience, "</span></p>\n  \n        <h2>Summary</h2>\n        <p><strong>Summary:</strong> <span>").concat(data.summary, "</span></p>\n      </div>\n    ");
-    resumeSection.classList.add('generated-resume');
-    resumeSection.innerHTML = resumeHTML;
-    toggleFormElements(true); // Disable form elements when the resume is displayed
-}
