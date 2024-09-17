@@ -1,7 +1,7 @@
-interface ResumeData {
+interface UserDetails {
     name: string;
     phone: string;
-    whatsapp: string;
+    address: string;
     email: string;
     linkdin: string;
     qualifications: string;
@@ -9,7 +9,9 @@ interface ResumeData {
     skills: string;
     profession: string;
     experience: string;
-    summary: string;
+    profile: string;
+    github:string;
+    profileImage: string;
   }
   
   const resumeForm = document.getElementById('resumeForm') as HTMLFormElement;
@@ -23,48 +25,104 @@ interface ResumeData {
   
     if (!isEditing) {
       // Generate resume
-      const resumeData: ResumeData = {
-        name: (document.getElementById('name') as HTMLInputElement).value,
-        phone: (document.getElementById('phone') as HTMLInputElement).value,
-        whatsapp: (document.getElementById('whatsapp') as HTMLInputElement).value,
-        email: (document.getElementById('email') as HTMLInputElement).value,
-        linkdin: (document.getElementById('linkdin') as HTMLInputElement).value,
-        qualifications: (document.getElementById('qualifications') as HTMLSelectElement).value,
-        courses: (document.getElementById('courses') as HTMLInputElement).value,
-        skills: (document.getElementById('skills') as HTMLInputElement).value,
-        profession: (document.getElementById('profession') as HTMLInputElement).value,
-        experience: (document.getElementById('experience') as HTMLTextAreaElement).value,
-        summary: (document.getElementById('summary') as HTMLTextAreaElement).value,
+      const resumeData: UserDetails = {
+        name: (document.getElementById("name") as HTMLInputElement).value,
+        phone: (document.getElementById("phone") as HTMLInputElement).value,
+        address: (document.getElementById("address") as HTMLInputElement).value,
+        email: (document.getElementById("email") as HTMLInputElement).value,
+        linkdin: (document.getElementById("linkdin") as HTMLInputElement).value,
+        github: (document.getElementById("github") as HTMLInputElement).value,
+        qualifications: (document.getElementById("qualifications") as HTMLSelectElement).value,
+        courses: (document.getElementById("courses") as HTMLInputElement).value,
+        skills: (document.getElementById("skills") as HTMLInputElement).value,
+        profession: (document.getElementById("profession") as HTMLInputElement).value,
+        experience: (document.getElementById("experience") as HTMLTextAreaElement).value,
+        profile: (document.getElementById("profile") as HTMLTextAreaElement).value,
+        profileImage: (document.getElementById("profile-image") as HTMLTextAreaElement).value,
       };
   
       displayResume(resumeData);
     }
   });
   
-  function displayResume(data: ResumeData) {
+  function displayResume(data: UserDetails) {
     const resumeHTML = `
-        <h2>Personal Details</h2>
-        <p><strong>Name:</strong> <span>${data.name}</span></p>
-        <p><strong>Contact Number:</strong> <span>${data.phone}</span></p>
-        <p><strong>WhatsApp:</strong> <span>${data.whatsapp}</span></p>
-        <p><strong>Email:</strong> <span>${data.email}</span></p>
-        <p><strong>LinkedIn:</strong> <span>${data.linkdin}</span></p>
-      
-        <h2>Education</h2>
-        <p><strong>Qualification:</strong> <span>${data.qualifications}</span></p>
-        <p><strong>Courses:</strong> <span>${data.courses}</span></p>
-  
-        <h2>Skills</h2>
-        <p><strong>Your Skills:</strong> <span>${data.skills}</span></p>
-  
-        <h2>Profession</h2>
-        <p><strong>Profession:</strong> <span>${data.profession}</span></p>
-  
-        <h2>Work Experience</h2>
-        <p><strong>Experience:</strong> <span>${data.experience}</span></p>
-  
-        <h2>Summary</h2>
-        <p><strong>Summary:</strong> <span>${data.summary}</span></p>
+        <div class="container">
+        <!-- sidebar -->
+        <div class="sidebar">
+            <div class="profile-image">
+         <img src="${data.profileImage }" alt="${data.name}">
+                </div>
+            
+            <div class="profile-info">
+                <h3>Profile</h3>
+                <ul>
+                    <p>${data.profile}</p>
+                   
+                </ul>
+              
+            </div>
+
+            <div class="contact-info">
+                <h3>Contact Me</h3>
+                
+                <p><i class="fa fa-phone"></i>${data.phone}</p>
+                <p><i class="fa fa-envelope"></i>${data.email}</p>
+                <p><i class="fa fa-map-marker"></i>${data.linkdin}</p>
+                
+            </div>
+            <div class="social-info">
+                <h3>Professional Accounts</h3>
+                <p><strong>Github Account:</strong><br><a href="">${data.github}</a> </p>
+                <p><strong>LinkedIn Profile:</strong><br><a href="">${data.linkdin}</a> </p>
+            </div>
+        </div>
+        <!-- Main section -->
+            <div class="main">
+                <div class="name">
+            <h1>${data.name}</h1>
+            <p>${data.profession}</p>
+
+                </div>
+                <div class="education">
+                <h2>Education</h2>
+                    <ul>
+                <li>${data.qualifications}</li>
+              
+            </ul>
+                </div>
+
+                <div class="Technical-courses">
+                    <h2>Technical Courses</h2>
+                    <ul>
+                        <li>${data.courses}</li>
+                    </ul>
+                
+                </div>
+
+                <div class="skills" id="skills">
+                    <h2>Technical Skills</h2>
+                    <ul>
+                        <li> ${data.skills}</li>
+                       
+                    </ul>
+                </div>
+
+                <div class="experiece">
+                    <h2>Work Experience</h2>
+                    <ul>
+                     <li> ${data.experience}</li></ul>
+                   
+                    
+                </div>
+
+                <div class="Reference">
+                    <h2>Reference</h2>
+                    <p>Will be furnished upon request.</p>
+                </div>
+            </div>
+        
+    </div>
       
     `;
   
