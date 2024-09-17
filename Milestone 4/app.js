@@ -1,7 +1,21 @@
+var _a;
 var resumeForm = document.getElementById('resumeForm');
 var resumeSection = document.getElementById('resume');
 var editButton = document.getElementById('editButton');
 var isEditing = false;
+var imageUrl;
+(_a = document.getElementById('profile-image')) === null || _a === void 0 ? void 0 : _a.addEventListener('change', function (event) {
+    var _a;
+    var file = (_a = event.target.files) === null || _a === void 0 ? void 0 : _a[0];
+    if (file) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var _a;
+            imageUrl = (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
+        };
+        reader.readAsDataURL(file);
+    }
+});
 resumeForm.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!isEditing) {
@@ -19,7 +33,7 @@ resumeForm.addEventListener('submit', function (e) {
             profession: document.getElementById("profession").value,
             experience: document.getElementById("experience").value,
             profile: document.getElementById("profile").value,
-            profileImage: document.getElementById("profile-image").value,
+            profileImage: imageUrl || ""
         };
         displayResume(resumeData);
     }
